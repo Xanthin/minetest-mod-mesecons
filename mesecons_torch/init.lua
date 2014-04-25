@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 --MESECON TORCHES
 
 local rotate_torch_rules = function (rules, param2)
@@ -77,7 +85,7 @@ minetest.register_node("mesecons_torch:mesecon_torch_on", {
 	selection_box = torch_selectionbox,
 	groups = {dig_immediate=3},
 	light_source = LIGHT_MAX-5,
-	description="Mesecon Torch",
+	description=S("Mesecon Torch"),
 	mesecons = {receptor = {
 		state = mesecon.state.on,
 		rules = torch_get_output_rules
