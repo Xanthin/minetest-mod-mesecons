@@ -1,0 +1,4 @@
+# Translation by Xanthin
+
+Movestone = Schiebestein
+Sticky Movestone = Klebriger Schiebestein
