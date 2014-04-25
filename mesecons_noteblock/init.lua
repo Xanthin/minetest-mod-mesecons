@@ -1,5 +1,13 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 minetest.register_node("mesecons_noteblock:noteblock", {
-	description = "Noteblock",
+	description = S("Noteblock"),
 	tiles = {"mesecons_noteblock.png"},
 	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
 	drawtype = "allfaces_optional",
