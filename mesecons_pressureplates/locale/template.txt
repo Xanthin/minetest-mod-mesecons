@@ -1,0 +1,4 @@
+# Template
+
+Wooden Pressure Plate = 
+Stone Pressure Plate = 
