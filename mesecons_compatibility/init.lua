@@ -1,5 +1,13 @@
 doors = {}
 
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- Registers a door - REDEFINITION ONLY | DOORS MOD MUST HAVE BEEN LOADED BEFORE
 --  name: The name of the door
 --  def: a table with the folowing fields:
@@ -148,7 +156,7 @@ function doors:register_door(name, def)
 end
 
 doors:register_door("doors:door_wood", {
-	description = "Wooden Door",
+	description = S("Wooden Door"),
 	inventory_image = "door_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"door_wood_b.png", "door_brown.png"},
@@ -157,7 +165,7 @@ doors:register_door("doors:door_wood", {
 })
 
 doors:register_door("doors:door_steel", {
-	description = "Steel Door",
+	description = S("Steel Door"),
 	inventory_image = "door_steel.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
 	tiles_bottom = {"door_steel_b.png", "door_grey.png"},
