@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- WALL BUTTON
 -- A button that when pressed emits power for 1 second
 -- and then turns off again
@@ -39,7 +47,7 @@ minetest.register_node("mesecons_button:button_off", {
 	}
 	},
 	groups = {dig_immediate=2, mesecon_needs_receiver = 1},
-	description = "Button",
+	description = S("Button"),
 	on_punch = function (pos, node)
 		minetest.swap_node(pos, {name = "mesecons_button:button_on", param2=node.param2})
 		mesecon:receptor_on(pos, mesecon.rules.buttonlike_get(node))
@@ -82,7 +90,7 @@ minetest.register_node("mesecons_button:button_on", {
     },
 	groups = {dig_immediate=2, not_in_creative_inventory=1, mesecon_needs_receiver = 1},
 	drop = 'mesecons_button:button_off',
-	description = "Button",
+	description = S("Button"),
 	sounds = default.node_sound_stone_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.on,
