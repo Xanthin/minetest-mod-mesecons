@@ -1,0 +1,9 @@
+# Translation by Xanthin
+
+You hacker you! = Du Hacker, Du!
+diode = Diode
+not = NOT (nicht)
+nand = NAND (nicht und)
+and = AND (und)
+xor = XOR (entweder oder)
+%s Gate = %s-Gatter
