@@ -1,0 +1,4 @@
+# Translation by Xanthin
+
+Insulated Mesecon = Isoliertes Mesecon
+insulated mesecons = Isoliertes Mesecon
