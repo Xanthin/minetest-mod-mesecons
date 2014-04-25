@@ -1,0 +1,10 @@
+# Template
+
+Microcontroller = 
+Program = 
+Unprogrammed Microcontroller = 
+Programmed Microcontroller = 
+Code not valid!\n%s = 
+Working Microcontroller\n%s = 
+Code in after() not valid! = 
+Working Microcontroller = 
