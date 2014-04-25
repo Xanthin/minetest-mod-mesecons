@@ -11,7 +11,7 @@ minetest.register_chatcommand("say", {
 	description = S("Say <text> as the server"),
 	privs = {server=true},
 	func = function(name, param)
-		minetest.chat_send_all(S('%s ": " %s'):format(name,param))
+		minetest.chat_send_all(S('%s: %s'):format(name,param))
 	end
 })
 
