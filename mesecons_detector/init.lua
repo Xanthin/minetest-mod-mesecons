@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- Object detector
 -- Detects players in a certain radius
 -- The radius can be specified in mesecons/settings.lua
@@ -5,9 +13,9 @@
 local object_detector_make_formspec = function (pos)
 	local meta = minetest.get_meta(pos)
 	meta:set_string("formspec", "size[9,2.5]" ..
-		"field[0.3,  0;9,2;scanname;Name of player to scan for (empty for any):;${scanname}]"..
-		"field[0.3,1.5;4,2;digiline_channel;Digiline Channel (optional):;${digiline_channel}]"..
-		"button_exit[7,0.75;2,3;;Save]")
+		"field[0.3,  0;9,2;scanname;"..S("Name of player to scan for (empty for any):")..";${scanname}]"..
+		"field[0.3,1.5;4,2;digiline_channel;"..S("Digiline Channel (optional):")..";${digiline_channel}]"..
+		"button_exit[7,0.75;2,3;;"..S("Save").."]")
 end
 
 local object_detector_on_receive_fields = function(pos, formname, fields)
@@ -52,7 +60,7 @@ minetest.register_node("mesecons_detector:object_detector_off", {
 	paramtype = "light",
 	walkable = true,
 	groups = {cracky=3},
-	description="Player Detector",
+	description=S("Player Detector"),
 	mesecons = {receptor = {
 		state = mesecon.state.off
 	}},
