@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 EEPROM_SIZE = 255
 
 for a = 0, 1 do
@@ -52,7 +60,7 @@ if nodename ~= "mesecons_microcontroller:microcontroller0000" then
 end
 
 minetest.register_node(nodename, {
-	description = "Microcontroller",
+	description = S("Microcontroller"),
 	drawtype = "nodebox",
 	tiles = {
 		top,
@@ -91,8 +99,8 @@ minetest.register_node(nodename, {
 			"button[4.5,0.2;1.5,3;bnand;NAND]"..
 			"button[6  ,0.2;1.5,3;btflop;T-Flop]"..
 			"button[7.5,0.2;1.5,3;brsflop;RS-Flop]"..
-			"button_exit[3.5,1;2,3;program;Program]")
-		meta:set_string("infotext", "Unprogrammed Microcontroller")
+			"button_exit[3.5,1;2,3;program;"..S("Program").."]")
+		meta:set_string("infotext", S("Unprogrammed Microcontroller"))
 		local r = ""
 		for i=1, EEPROM_SIZE+1 do r=r.."0" end --Generate a string with EEPROM_SIZE*"0"
 		meta:set_string("eeprom", r)
@@ -123,8 +131,8 @@ minetest.register_node(nodename, {
 		"button[4.5,0.2;1.5,3;bnand;NAND]"..
 		"button[6  ,0.2;1.5,3;btflop;T-Flop]"..
 		"button[7.5,0.2;1.5,3;brsflop;RS-Flop]"..
-		"button_exit[3.5,1;2,3;program;Program]")
-		meta:set_string("infotext", "Programmed Microcontroller")
+		"button_exit[3.5,1;2,3;program;"..S("Program").."]")
+		meta:set_string("infotext", S("Programmed Microcontroller"))
 		yc_reset (pos)
 		update_yc(pos)
 	end,
@@ -174,9 +182,9 @@ function update_yc(pos)
 	code = string.gsub(code, " ", "")	--Remove all spaces
 	code = string.gsub(code, "	", "")	--Remove all tabs
 	if yc_parsecode(code, pos) == nil then
-		meta:set_string("infotext", "Code not valid!\n"..code)
+		meta:set_string("infotext", S("Code not valid!\n%s"):format(code))
 	else
-		meta:set_string("infotext", "Working Microcontroller\n"..code)
+		meta:set_string("infotext", S("Working Microcontroller\n%s"):format(code))
 	end
 end
 
@@ -439,12 +447,12 @@ function yc_command_after_execute(params)
 	local meta = minetest.get_meta(params.pos)
 	if meta:get_int("afterid") == params.afterid then --make sure the node has not been changed
 		if yc_parsecode(params.code, params.pos) == nil then
-			meta:set_string("infotext", "Code in after() not valid!")
+			meta:set_string("infotext", S("Code in after() not valid!"))
 		else
 			if code ~= nil then
-				meta:set_string("infotext", "Working Microcontroller\n"..code)
+				meta:set_string("infotext", S("Working Microcontroller\n%s"):format(code))
 			else
-				meta:set_string("infotext", "Working Microcontroller")
+				meta:set_string("infotext", S("Working Microcontroller"))
 			end
 		end
 	end
