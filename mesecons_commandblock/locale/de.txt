@@ -1,0 +1,19 @@
+# Translation by Xanthin
+
+Say <text> as the server = Sage <Text> wie der Server
+#1:name, 2:param <text>
+%s: %s = %s: %s
+Say <text> to <name> privately = Sage vertraulich <Text> zu <Name>
+Invalid usage: %s = Ungueltige Nutzung: %s
+Invalid target: %s = Ungueltiges Ziel: %s
+#1:name, 2:message
+%s whispers: %s = %s fluestert: %s
+Set health of <name> to <value> hitpoints = Aendere die Gesundheit von <Name> auf <Wert> Lebenspunkte
+Commands = Befehle
+@nearest, @farthest, and @random are replaced by the respective player names = @nearest, @farthest und @random ersetzen die jeweiligen Spielernamen
+Submit = Absenden
+not owned = gehoert niemandem
+owned by %s = gehoert %s
+Command Block\n (%s)\n Commands: %s = Befehlsblock\n(%s)\nBefehle: %s
+The command %s does not exist = Der Befehl %s existiert nicht
+Command Block = Befehlsblock
