@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- WALL LEVER
 -- Basically a switch that can be attached to a wall
 -- Powers the block 2 nodes behind (using a receiver)
@@ -30,7 +38,7 @@ minetest.register_node("mesecons_walllever:wall_lever_off", {
 			 { -1/16, -8/16, 4/16, 1/16,  0,    6/16 }}	-- the lever itself.
 	},
 	groups = {dig_immediate=2, mesecon_needs_receiver = 1},
-	description="Lever",
+	description=S("Lever"),
 	on_punch = function (pos, node)
 		minetest.swap_node(pos, {name = "mesecons_walllever:wall_lever_on", param2 = node.param2})
 		mesecon:receptor_on(pos, mesecon.rules.buttonlike_get(node))
@@ -72,7 +80,7 @@ minetest.register_node("mesecons_walllever:wall_lever_on", {
 	},
 	groups = {dig_immediate = 2, not_in_creative_inventory = 1, mesecon_needs_receiver = 1},
 	drop = "mesecons_walllever:wall_lever_off 1",
-	description="Lever",
+	description=S("Lever"),
 	on_punch = function (pos, node)
 		minetest.swap_node(pos, {name = "mesecons_walllever:wall_lever_off", param2 = node.param2})
 		mesecon:receptor_off(pos, mesecon.rules.buttonlike_get(node))
