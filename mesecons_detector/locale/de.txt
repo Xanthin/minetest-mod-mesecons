@@ -1,0 +1,6 @@
+# Translation by Xanthin
+
+Name of player to scan for (empty for any): = Spielername zum scannen (leer lassen fuer alle):
+Digiline Channel (optional): = Digiline-Kanal (optional)
+Save = Speichern
+Player Detector = Spielersensor
