@@ -1,0 +1,6 @@
+# Template
+
+Name of player to scan for (empty for any): = 
+Digiline Channel (optional): = 
+Save = 
+Player Detector = 
