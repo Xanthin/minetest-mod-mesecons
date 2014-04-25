@@ -1,0 +1,4 @@
+# Translation by Xanthin
+
+Wooden Pressure Plate = Holzdruckplatte
+Stone Pressure Plate = Steindruckplatte
