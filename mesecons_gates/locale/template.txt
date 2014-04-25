@@ -1,0 +1,9 @@
+# Template
+
+You hacker you! = 
+diode = 
+not = 
+nand = 
+and = 
+xor = 
+%s Gate = 
