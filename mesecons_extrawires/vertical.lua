@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 local vertical_box = {
 	type = "fixed",
 	fixed = {-1/16, -8/16, -1/16, 1/16, 8/16, 1/16}
@@ -67,7 +75,7 @@ end
 
 -- Vertical wire
 minetest.register_node("mesecons_extrawires:vertical_on", {
-	description = "Vertical mesecon",
+	description = S("Vertical mesecon"),
 	drawtype = "nodebox",
 	tiles = {"wires_vertical_on.png"},
 	walkable = false,
@@ -89,7 +97,7 @@ minetest.register_node("mesecons_extrawires:vertical_on", {
 })
 
 minetest.register_node("mesecons_extrawires:vertical_off", {
-	description = "Vertical mesecon",
+	description = S("Vertical mesecon"),
 	drawtype = "nodebox",
 	tiles = {"wires_vertical_off.png"},
 	walkable = false,
@@ -111,7 +119,7 @@ minetest.register_node("mesecons_extrawires:vertical_off", {
 
 -- Vertical wire top
 minetest.register_node("mesecons_extrawires:vertical_top_on", {
-	description = "Vertical mesecon",
+	description = S("Vertical mesecon"),
 	drawtype = "nodebox",
 	tiles = {"wires_full_on.png","wires_full_on.png","wires_vertical_on.png"},
 	walkable = false,
@@ -133,7 +141,7 @@ minetest.register_node("mesecons_extrawires:vertical_top_on", {
 })
 
 minetest.register_node("mesecons_extrawires:vertical_top_off", {
-	description = "Vertical mesecon",
+	description = S("Vertical mesecon"),
 	drawtype = "nodebox",
 	tiles = {"wires_full_off.png","wires_full_off.png","wires_vertical_off.png"},
 	walkable = false,
@@ -156,7 +164,7 @@ minetest.register_node("mesecons_extrawires:vertical_top_off", {
 
 -- Vertical wire bottom
 minetest.register_node("mesecons_extrawires:vertical_bottom_on", {
-	description = "Vertical mesecon",
+	description = S("Vertical mesecon"),
 	drawtype = "nodebox",
 	tiles = {"wires_full_on.png","wires_full_on.png","wires_vertical_on.png"},
 	walkable = false,
@@ -177,7 +185,7 @@ minetest.register_node("mesecons_extrawires:vertical_bottom_on", {
 })
 
 minetest.register_node("mesecons_extrawires:vertical_bottom_off", {
-	description = "Vertical mesecon",
+	description = S("Vertical mesecon"),
 	drawtype = "nodebox",
 	tiles = {"wires_full_off.png","wires_full_off.png","wires_vertical_off.png"},
 	walkable = false,
