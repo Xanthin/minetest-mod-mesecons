@@ -1,14 +1,22 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 --GLUE
 minetest.register_craftitem("mesecons_materials:glue", {
 	image = "jeija_glue.png",
 	on_place_on_ground = minetest.craftitem_place_item,
-    	description="Glue",
+    	description=S("Glue"),
 })
 
 minetest.register_craftitem("mesecons_materials:fiber", {
 	image = "jeija_fiber.png",
 	on_place_on_ground = minetest.craftitem_place_item,
-    	description="Fiber",
+    	description=S("Fiber"),
 })
 
 minetest.register_craft({
@@ -29,7 +37,7 @@ minetest.register_craft({
 minetest.register_craftitem("mesecons_materials:silicon", {
 	image = "jeija_silicon.png",
 	on_place_on_ground = minetest.craftitem_place_item,
-    	description="Silicon",
+    	description=S("Silicon"),
 })
 
 minetest.register_craft({
