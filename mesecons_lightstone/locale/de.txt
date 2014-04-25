@@ -1,0 +1,9 @@
+# Translation by Xanthin
+
+%s Lightstone = %s Lichtstein
+red = Roter
+green = Gruener
+blue = Blauer
+gray = Grauer
+darkgray = Dunkelgrauer
+yellow = Gelber
