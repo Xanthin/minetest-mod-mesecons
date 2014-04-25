@@ -1,0 +1,10 @@
+# Translation by Xanthin
+
+Microcontroller = Mikrocontroller
+Program = Programmieren
+Unprogrammed Microcontroller = Unprogrammierter Mikrocontroller
+Programmed Microcontroller = Programmierter Mikrocontroller
+Code not valid!\n%s = Code ist nicht gueltig!\n%s
+Working Microcontroller\n%s = Arbeitender Mikrocontroller\n%s
+Code in after() not valid! = Code in after() ist nicht gueltig!
+Working Microcontroller = Arbeitender Mikrocontroller
