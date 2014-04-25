@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- Function that get the input/output rules of the delayer
 local delayer_get_output_rules = function(node)
 	local rules = {{x = 0, y = 0, z = 1}}
@@ -60,7 +68,7 @@ boxes = {{ -6/16, -8/16, -6/16, 6/16, -7/16, 6/16 },		-- the main slab
 	 { 6/16, -8/16, -1/16, 8/16, -7/16, 1/16 }}
 
 minetest.register_node("mesecons_delayer:delayer_off_"..tostring(i), {
-	description = "Delayer",
+	description = S("Delayer"),
 	drawtype = "nodebox",
 	tiles = {
 		"mesecons_delayer_off_"..tostring(i)..".png",
@@ -117,7 +125,7 @@ minetest.register_node("mesecons_delayer:delayer_off_"..tostring(i), {
 
 
 minetest.register_node("mesecons_delayer:delayer_on_"..tostring(i), {
-	description = "You hacker you",
+	description = S("You hacker you"),
 	drawtype = "nodebox",
 	tiles = {
 		"mesecons_delayer_on_"..tostring(i)..".png",
