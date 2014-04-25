@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- Get mesecon rules of pistons
 piston_rules =
 {{x=0,  y=0,  z=1}, --everything apart from z- (pusher side)
@@ -155,7 +163,7 @@ local pistonspec_normal = {
 
 -- offstate
 minetest.register_node("mesecons_pistons:piston_normal_off", {
-	description = "Piston",
+	description = S("Piston"),
 	tiles = {
 		"mesecons_piston_top.png", 
 		"mesecons_piston_bottom.png", 
@@ -236,7 +244,7 @@ local pistonspec_sticky = {
 
 -- offstate
 minetest.register_node("mesecons_pistons:piston_sticky_off", {
-	description = "Sticky Piston",
+	description = S("Sticky Piston"),
 	tiles = {
 		"mesecons_piston_top.png", 
 		"mesecons_piston_bottom.png", 
