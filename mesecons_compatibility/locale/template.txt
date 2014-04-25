@@ -1,0 +1,4 @@
+# Template
+
+Wooden Door = 
+Steel Door = 
