@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 local mesewire_rules =
 {
 	{x = 1, y = 0, z = 0},
@@ -9,7 +17,7 @@ local mesewire_rules =
 }
 
 minetest.register_node(":default:mese", {
-	description = "Mese Block",
+	description = S("Mese Block"),
 	tiles = {minetest.registered_nodes["default:mese"].tiles[1]},
 	is_ground_content = true,
 	groups = {cracky=1},
