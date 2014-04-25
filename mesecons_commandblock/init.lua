@@ -1,43 +1,51 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 minetest.register_chatcommand("say", {
 	params = "<text>",
-	description = "Say <text> as the server",
+	description = S("Say <text> as the server"),
 	privs = {server=true},
 	func = function(name, param)
-		minetest.chat_send_all(name .. ": " .. param)
+		minetest.chat_send_all(S('%s ": " %s'):format(name,param))
 	end
 })
 
 minetest.register_chatcommand("tell", {
 	params = "<name> <text>",
-	description = "Say <text> to <name> privately",
+	description = S("Say <text> to <name> privately"),
 	func = function(name, param)
 		local found, _, target, message = param:find("^([^%s]+)%s+(.*)$")
 		if found == nil then
-			minetest.chat_send_player(name, "Invalid usage: " .. param)
+			minetest.chat_send_player(name, S("Invalid usage: %s"):format(param))
 			return
 		end
 		if not minetest.get_player_by_name(target) then
-			minetest.chat_send_player(name, "Invalid target: " .. target)
+			minetest.chat_send_player(name, S("Invalid target: %s"):format(target))
 		end
-		minetest.chat_send_player(target, name .. " whispers: " .. message, false)
+		minetest.chat_send_player(target, S("%s whispers: %s"):format(name,message), false)
 	end
 })
 
 minetest.register_chatcommand("hp", {
 	params = "<name> <value>",
-	description = "Set health of <name> to <value> hitpoints",
+	description = S("Set health of <name> to <value> hitpoints"),
 	privs = {ban=true},
 	func = function(name, param)
 		local found, _, target, value = param:find("^([^%s]+)%s+(%d+)$")
 		if found == nil then
-			minetest.chat_send_player(name, "Invalid usage: " .. param)
+			minetest.chat_send_player(name, S("Invalid usage: %s"):format(param))
 			return
 		end
 		local player = minetest.get_player_by_name(target)
 		if player then
 			player:set_hp(value)
 		else
-			minetest.chat_send_player(name, "Invalid target: " .. target)
+			minetest.chat_send_player(name, S("Invalid target: %s"):format(target))
 		end
 	end
 })
@@ -46,18 +54,16 @@ local function initialize_data(meta)
 	local commands = meta:get_string("commands")
 	meta:set_string("formspec",
 		"invsize[9,5;]" ..
-		"textarea[0.5,0.5;8.5,4;commands;Commands;"..commands.."]" ..
-		"label[1,3.8;@nearest, @farthest, and @random are replaced by the respective player names]" ..
-		"button_exit[3.3,4.5;2,1;submit;Submit]")
+		"textarea[0.5,0.5;8.5,4;commands;"..S("Commands")..";"..commands.."]" ..
+		"label[1,3.8;"..S("@nearest, @farthest, and @random are replaced by the respective player names").."]" ..
+		"button_exit[3.3,4.5;2,1;submit;"..S("Submit").."]")
 	local owner = meta:get_string("owner")
 	if owner == "" then
-		owner = "not owned"
+		owner = S("not owned")
 	else
-		owner = "owned by " .. owner
+		owner = S("owned by %s"):format(owner)
 	end
-	meta:set_string("infotext", "Command Block\n" ..
-		"(" .. owner .. ")\n" ..
-		"Commands: "..commands)
+	meta:set_string("infotext", S("Command Block\n (%s)\n Commands: %s"):format(owner,commands))
 end
 
 local function construct(pos)
@@ -137,7 +143,7 @@ local function commandblock_action_on(pos, node)
 		end
 		local cmddef = minetest.chatcommands[cmd]
 		if not cmddef then
-			minetest.chat_send_player(owner, "The command "..cmd.." does not exist")
+			minetest.chat_send_player(owner, S("The command %s does not exist"):format(cmd))
 			return
 		end
 		local has_privs, missing_privs = minetest.check_player_privs(owner, cmddef.privs)
@@ -165,7 +171,7 @@ local function can_dig(pos, player)
 end
 
 minetest.register_node("mesecons_commandblock:commandblock_off", {
-	description = "Command Block",
+	description = S("Command Block"),
 	tiles = {"jeija_commandblock_off.png"},
 	inventory_image = minetest.inventorycube("jeija_commandblock_off.png"),
 	groups = {cracky=2, mesecon_effector_off=1},
