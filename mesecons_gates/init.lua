@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 function gate_rotate_rules(node)
 	for rotations = 0, node.param2 - 1 do
 		rules = mesecon:rotate_rules_left(rules)
@@ -113,13 +121,13 @@ for _, gate in ipairs(gates) do
 			onoff = "on"
 			drop = nodename.."_off"
 			nodename = nodename.."_"..onoff
-			description = "You hacker you!"
+			description = S("You hacker you!")
 			groups = {dig_immediate=2, not_in_creative_inventory=1, overheat = 1}
 		else
 			onoff = "off"
 			drop = nil
 			nodename = nodename.."_"..onoff
-			description = gate.name.." Gate"
+			description = S("%s Gate"):format(S(gate.name))
 			groups = {dig_immediate=2, overheat = 1}
 		end
 
