@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- MOVESTONE
 -- Non-sticky:
 -- Moves along mesecon lines
@@ -60,7 +68,7 @@ minetest.register_node("mesecons_movestones:movestone", {
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
 	groups = {cracky=3},
-    	description="Movestone",
+    	description=S("Movestone"),
 	sounds = default.node_sound_stone_defaults(),
 	mesecons = {effector = {
 		action_on = function (pos, node)
@@ -139,7 +147,7 @@ minetest.register_node("mesecons_movestones:sticky_movestone", {
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
 	groups = {cracky=3},
-    	description="Sticky Movestone",
+    	description=S("Sticky Movestone"),
 	sounds = default.node_sound_stone_defaults(),
 	mesecons = {effector = {
 		action_on = function (pos, node)
