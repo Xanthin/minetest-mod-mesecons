@@ -1,0 +1,4 @@
+# Translation by Xanthin
+
+Wooden Door = Holztuer
+Steel Door = Stahltuer
