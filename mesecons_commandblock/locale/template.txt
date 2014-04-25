@@ -1,0 +1,20 @@
+# Template
+
+Say <text> as the server = 
+#1:name, 2:param <text>
+%s: %s = 
+Say <text> to <name> privately = 
+Invalid usage: %s = 
+Invalid target: %s = 
+#1:name, 2:message
+%s whispers: %s = 
+Set health of <name> to <value> hitpoints = 
+Commands = 
+@nearest, @farthest, and @random are replaced by the respective player names = 
+Submit = 
+not owned = 
+owned by %s = 
+Command Block\n (%s)\n Commands: %s = 
+The command %s does not exist = 
+
+Command Block = 
