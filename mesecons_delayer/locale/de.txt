@@ -1,0 +1,4 @@
+# Translation by Xanthin
+
+Delayer = Verzoegerer
+You hacker you = Du Hacker, Du.
