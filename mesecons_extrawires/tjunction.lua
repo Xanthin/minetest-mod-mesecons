@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 local tjunction_nodebox = {
 	type = "fixed",
 	fixed = {{ -16/32-0.001, -17/32, -3/32, 16/32+0.001, -13/32, 3/32 },
@@ -50,7 +58,7 @@ minetest.register_node("mesecons_extrawires:tjunction_on", {
 
 minetest.register_node("mesecons_extrawires:tjunction_off", {
 	drawtype = "nodebox",
-	description = "T-junction",
+	description = S("T-junction"),
 	tiles = {
 		"jeija_insulated_wire_tjunction_tb_off.png",
 		"jeija_insulated_wire_tjunction_tb_off.png^[transformR180",
