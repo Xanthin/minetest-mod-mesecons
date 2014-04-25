@@ -1,0 +1,4 @@
+# Translation by Xanthin
+
+Piston = Kolben
+Sticky Piston = Klebriger Kolben 
