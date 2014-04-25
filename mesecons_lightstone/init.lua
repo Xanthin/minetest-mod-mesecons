@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 local lightstone_rules = {
 	{x=0,  y=0,  z=-1},
 	{x=1,  y=0,  z=0},
@@ -18,7 +26,7 @@ function mesecon:lightstone_add(name, base_item, texture_off, texture_on)
 	minetest.register_node("mesecons_lightstone:lightstone_" .. name .. "_off", {
 		tiles = {texture_off},
 		groups = {cracky=2, mesecon_effector_off = 1, mesecon = 2},
-		description=name.." Lightstone",
+		description = S("%s Lightstone"):format(S(name)),
 		sounds = default.node_sound_stone_defaults(),
 		mesecons = {effector = {
 			rules = lightstone_rules,
