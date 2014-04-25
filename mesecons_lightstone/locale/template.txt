@@ -1,0 +1,9 @@
+# Template
+
+%s Lightstone = 
+red = 
+green = 
+blue = 
+gray = 
+darkgray = 
+yellow = 
