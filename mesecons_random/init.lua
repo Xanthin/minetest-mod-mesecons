@@ -1,10 +1,18 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- REMOVESTONE
 
 minetest.register_node("mesecons_random:removestone", {
 	tiles = {"jeija_removestone.png"},
 	inventory_image = minetest.inventorycube("jeija_removestone_inv.png"),
 	groups = {cracky=3},
-	description="Removestone",
+	description=S("Removestone"),
 	sounds = default.node_sound_stone_defaults(),
 	mesecons = {effector = {
 		action_on = function (pos, node)
@@ -26,7 +34,7 @@ minetest.register_craft({
 -- GHOSTSTONE
 
 minetest.register_node("mesecons_random:ghoststone", {
-	description="ghoststone",
+	description=S("ghoststone"),
 	tiles = {"jeija_ghoststone.png"},
 	is_ground_content = true,
 	inventory_image = minetest.inventorycube("jeija_ghoststone_inv.png"),
