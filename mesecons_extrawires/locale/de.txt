@@ -1,0 +1,8 @@
+# Translation by Xanthin
+
+Mesecon Corner = Mesecon-Ecke
+Insulated Crossover = Isolierte Kreuzung
+You hacker you! = Du Hacker, Du!
+Mese Block = Meseblock
+T-junction = T-Kreuzung
+Vertical mesecon = Vertikales Mesecon
