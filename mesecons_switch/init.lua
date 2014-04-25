@@ -1,10 +1,18 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 -- MESECON_SWITCH
 
 minetest.register_node("mesecons_switch:mesecon_switch_off", {
 	tiles = {"jeija_mesecon_switch_side.png", "jeija_mesecon_switch_side.png", "jeija_mesecon_switch_side.png", "jeija_mesecon_switch_side.png", "jeija_mesecon_switch_side.png", "jeija_mesecon_switch_off.png"},
 	paramtype2="facedir",
 	groups = {dig_immediate=2},
-	description="Switch",
+	description=S("Switch"),
 	sounds = default.node_sound_stone_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.off
